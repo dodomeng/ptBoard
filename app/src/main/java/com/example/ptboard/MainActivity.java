@@ -2,6 +2,7 @@ package com.example.ptboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -18,20 +19,20 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     // private로 MainActivity 클래스의 멤버 변수 만들어줌
-    private ListView noticeListView;
-    private NoticeListAdapter adapter;
-    private List<Notice> noticeList;
+    private ListView boardlistview;
+    private BoardListAdapter adapter;
+    private List<Board> boardList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        noticeListView = (ListView) findViewById(R.id.noticeListView);
-        noticeList = new ArrayList<Notice>();
+        boardlistview = (ListView) findViewById(R.id.boardListView);
+        boardList = new ArrayList<Board>();
         //listView에 해당 adapter가 매칭이 됨으로써 adapter에 들어간 모든 내용들이 view형태로 list에 들어가서 보여짐
-        adapter = new NoticeListAdapter(getApplicationContext(), noticeList);
-        noticeListView.setAdapter(adapter);
+        adapter = new BoardListAdapter(getApplicationContext(), boardList);
+        boardlistview.setAdapter(adapter);
 
         new BackgroundTask().execute();
     }
@@ -105,8 +106,8 @@ public class MainActivity extends AppCompatActivity {
                     boardDate = object.getString("boardDate");
                     boardUser = object.getString("boardUser");
                     // 하나의 게시판에 대한 객체 생성
-                    Notice notice = new Notice(boardContent, boardName, boardDate, boardUser);
-                    noticeList.add(notice);
+                    Board board = new Board(boardContent, boardName, boardDate, boardUser);
+                    boardList.add(board);
                     count++;
                 }
             } catch(Exception e) {

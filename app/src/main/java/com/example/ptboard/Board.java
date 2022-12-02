@@ -1,11 +1,11 @@
 package com.example.ptboard;
 
-public class Notice {
+public class Board {
     // 각각 데이터가 들어갈 공간 만들어줌
-    String notice;
     String name;
     String Date;
     String user;
+    String board;
 
     public String getUser() {
         return user;
@@ -16,8 +16,8 @@ public class Notice {
     }
 
     // 생성자 만들어줌
-    public Notice(String notice, String name, String date, String user) {
-        this.notice = notice;
+    public Board(String board, String name, String date, String user) {
+        this.board = board;
         this.name = name;
         Date = date;
         this.user = user;
@@ -39,11 +39,12 @@ public class Notice {
         Date = date;
     }
 
-    public String getNotice() {
-        return notice;
+    public String getBoard() {
+        return board;
     }
 
-    public void setNotice(String notice) {
-        this.notice = notice;
+    public void setBoard(String board) {
+        this.board = board;
     }
+
 }

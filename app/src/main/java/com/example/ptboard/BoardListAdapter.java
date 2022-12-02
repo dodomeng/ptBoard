@@ -10,27 +10,27 @@ import java.util.List;
 
 // BaseAdapter 상속 받아서 사용
 // Adapter 만드는 거임
-public class NoticeListAdapter extends BaseAdapter {
+public class BoardListAdapter extends BaseAdapter {
     
     // Alt+Enter로 메소드 만들어줌
     private Context context;
     // notice가 들어갈 list 만들어줌
-    private List<Notice> noticeList;
+    private List<Board> boardList;
     
     // constructor로 생성자 만들어줌
-    public NoticeListAdapter(Context context, List<Notice> noticeList) {
+    public BoardListAdapter(Context context, List<Board> boardList) {
         this.context = context;
-        this.noticeList = noticeList;
+        this.boardList = boardList;
     }
 
     @Override
     public int getCount() {
-        return noticeList.size();
+        return boardList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return noticeList.get(i);
+        return boardList.get(i);
     }
 
     @Override
@@ -40,20 +40,20 @@ public class NoticeListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        // R.layout.notice의 디자인을 사용하게 해줌
-        View v = View.inflate(context, R.layout.notice, null);
+        // R.layout.board의 디자인을 사용하게 해줌
+        View v = View.inflate(context, R.layout.board, null);
         // 객체 만들어줌
-        TextView noticeText  = (TextView) v.findViewById(R.id.noticeText);
+        TextView boardText  = (TextView) v.findViewById(R.id.boardText);
         TextView nameText  = (TextView) v.findViewById(R.id.nameText);
         TextView dateText  = (TextView) v.findViewById(R.id.dateText);
         
-        // noticeText를 현재 list에 있는 값으로 넣어줄 수 있게 해줌
-        noticeText.setText(noticeList.get(i).getNotice());
-        nameText.setText(noticeList.get(i).getName());
-        dateText.setText(noticeList.get(i).getDate());
+        // boardText를 현재 list에 있는 값으로 넣어줄 수 있게 해줌
+        boardText.setText(boardList.get(i).getBoard());
+        nameText.setText(boardList.get(i).getName());
+        dateText.setText(boardList.get(i).getDate());
         
         // 태그를 붙여줌 noticeList.get(i)에 있는 getNotice를 줌
-        v.setTag(noticeList.get(i).getNotice());
+        v.setTag(boardList.get(i).getBoard());
         // 해당 뷰 반환
         return v;
     }
